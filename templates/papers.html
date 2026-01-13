@@ -1,0 +1,107 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container main-content">
+        
+        <div class="filter-box">
+            <h2>Find a Past Paper</h2>
+            
+            <form method="GET" action="{% url 'papers' %}" class="filter-form">
+                
+                <div class="form-group">
+                    <label for="id_level">1. Select Level</label>
+                    <select name="level" id="id_level" class="input-select">
+                        <option value="">Any Level</option>
+                        {% for level in levels %}
+                            <option value="{{ level.pk }}" {% if request.GET.level|stringformat:"s" == level.pk|stringformat:"s" %}selected{% endif %}>
+                                {{ level.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="id_subject">2. Select Subject</label>
+                    <select name="subject" id="id_subject" class="input-select">
+                        <option value="">Any Subject</option>
+                        {% for subject in subjects %}
+                            <option value="{{ subject.pk }}" {% if request.GET.subject|stringformat:"s" == subject.pk|stringformat:"s" %}selected{% endif %}>
+                                {{ subject.name }} ({{ subject.level.name }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="id_year">3. Select Year</label>
+                    <select name="year" id="id_year" class="input-select">
+                        <option value="">Any Year</option>
+                        {% for year in available_years %}
+                            <option value="{{ year }}" {% if request.GET.year|stringformat:"s" == year|stringformat:"s" %}selected{% endif %}>
+                                {{ year }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-red">
+                        <i class="fas fa-search"></i> Show Papers
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <h2 class="results-heading">
+            <span class="green-text">#</span> {{ papers.count }} Results
+        </h2>
+
+        <div class="table-container">
+            <table class="paper-table">
+                <thead class="green-header">
+                    <tr>
+                        <th>Paper</th>
+                        <th>Subject</th>
+                        <th>Level</th>
+                        <th>Year</th>
+                        <th class="actions-col">Download </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for paper in papers %}
+                    <tr>
+                        
+                        <td data-label="Paper">{{ paper.get_paper_number_display }}</td>
+                        <td data-label="Subject">{{ paper.subject.name }}</td>
+                        <td data-label="Level">{{ paper.subject.level.name }}</td>
+                        <td data-label="Year" class="fw-bold">{{ paper.year }}</td>
+                         <td data-label="Download File" class="actions-col">
+                            
+                            <a href="{% url 'download_paper' paper.pk %}" class="btn btn-green">
+                                <i class="fas fa-file-pdf"></i> Download Paper
+                            </a>
+                            
+                            {% comment %} {% if paper.marking_scheme_file %}
+                            <a href="{{ paper.marking_scheme_file.url }}" class="btn btn-red-outline" download>
+                                <i class="fas fa-book"></i> Scheme
+                            </a>
+                            {% else %}
+                            <span class="text-muted">No Scheme</span>
+                            {% endif %} {% endcomment %}
+                        </td> 
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="no-results">
+                            No past papers match your current filters. Try broadening your selection.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

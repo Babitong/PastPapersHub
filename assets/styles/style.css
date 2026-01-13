@@ -1,0 +1,239 @@
+/* --- Color Variables --- */
+:root {
+    --gce-green-dark: #1A5E2A;      /* Dark Green for header/primary elements */
+    --gce-green-light: #28a745;     /* Lighter Green for buttons */
+    --gce-red: #C82333;             /* Deep Red for accents/action */
+    --gce-red-light: #dc3545;       /* Lighter Red for outlines */
+    --gce-background: #f4f6f9;      /* Light gray background */
+    --gce-white: #ffffff;
+    --gce-text-dark: #333;
+}
+
+/* --- Base & Layout --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--gce-background);
+    margin: 0;
+    padding: 0;
+    color: var(--gce-text-dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-content {
+    padding: 30px 0;
+}
+
+/* --- Typography & Color Accents --- */
+.fw-bold { font-weight: bold; }
+.green-text { color: var(--gce-green-dark); }
+.text-muted { color: #6c757d; font-size: 0.9em; }
+
+/* --- Header --- */
+.header {
+    background-color: var(--gce-green-dark);
+    color: var(--gce-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* --- Filter Box --- */
+.filter-box {
+    background-color: var(--gce-white);
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #1d4ed8; /* Green accent bar */
+}
+.filter-box h2 {
+    color:#2563eb;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.filter-form {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.input-select {
+    padding: 10px;
+    border: 1px solid #2563eb; /* Red border accent on inputs */
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: var(--gce-white);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s, border-color 0.2s;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Red Button (Show Papers) */
+.btn-red {
+    background-color: var(--gce-red);
+    color: var(--gce-white);
+    border: 1px solid var(--gce-red);
+    height: 40px; /* Match height of select box */
+    align-self: flex-end;
+}
+.btn-red:hover {
+    background-color: #a71d2a;
+}
+
+/* Green Button (Download Paper) */
+.btn-green {
+    background-color: #1a5ce9;
+    color: var(--gce-white);
+    padding: 6px 10px;
+    margin-right: 5px;
+}
+.btn-green:hover {
+    background-color: var(--gce-green-dark);
+}
+
+/* Red Outline Button (Marking Scheme) */
+.btn-red-outline {
+    background-color: transparent;
+    color: var(--gce-red);
+    border: 1px solid var(--gce-red);
+    padding: 6px 10px;
+}
+.btn-red-outline:hover {
+    background-color: var(--gce-red);
+    color: var(--gce-white);
+}
+
+/* --- Results Table --- */
+.results-heading {
+    color: var(--gce-red);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: var(--gce-white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 100px;
+}
+
+.paper-table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    text-align: center;
+}
+
+.green-header {
+    background:linear-gradient(to right,#1d4ed8, #2563eb, #1d4ed8);
+    color: var(--gce-white);
+    
+}
+
+.paper-table th, .paper-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.paper-table tbody tr:nth-child(even) {
+    background-color: #f0f0f0; /* Light stripe for readability */
+}
+
+.paper-table tbody tr:hover {
+    background-color: #e5e5e5;
+}
+
+.no-results {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 30px !important;
+}
+
+.actions-col {
+    text-align: center;
+   
+}
+
+/* --- Responsive Design (Mobile View) --- */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-group {
+        width: 100%;
+    }
+    .btn-red {
+        width: 100%;
+        height: auto;
+        padding: 12px;
+    }
+
+    /* Stack table cells on mobile */
+    .paper-table thead {
+        display: none; /* Hide header row */
+    }
+    .paper-table, .paper-table tbody, .paper-table tr, .paper-table td {
+        display: block;
+        /* width: 100%; */
+    }
+    .paper-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        background-color: var(--gce-white);
+    }
+    .paper-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+    .paper-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .actions-col {
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+}
+

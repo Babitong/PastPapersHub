@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Papers Hub</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/components.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Past Papers Hub</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
+          <li>
+            <a href="{% url 'papers' %}" class="nav-link">Browse Papers</a>
+          </li>
+          <li><a href="#subjects" class="nav-link">Subjects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+        <!-- <div class="nav-actions">
+                <button class="btn btn-outline">Login</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div> -->
+        <div class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    {% block content %}
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Access Past Papers Anytime, Anywhere</h1>
+        <p class="hero-description">
+          Download past examination papers for O-Level, A-Level, and Other
+          subjects. Perfect for students preparing for their exams.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Papers Available</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Subjects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years Covered</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-book-open hero-icon"></i>
+      </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects-section">
+      <div class="container">
+        <h2 class="section-title">Popular Subjects</h2>
+        <div class="subjects-grid">
+          <div class="subject-card">
+            <i class="fas fa-calculator"></i>
+            <h3>Mathematics</h3>
+            <p>120+ papers available</p>
+          </div>
+          <div class="subject-card">
+            <i class="fas fa-atom"></i>
+            <h3>Physics</h3>
+            <p>85+ papers available</p>
+          </div>
+          <div class="subject-card">
+            <i class="fas fa-flask"></i>
+            <h3>Chemistry</h3>
+            <p>78+ papers available</p>
+          </div>
+          <div class="subject-card">
+            <i class="fas fa-dna"></i>
+            <h3>Biology</h3>
+            <p>65+ papers available</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Past Papers Hub</h3>
+            <p>
+              Your trusted source for past examination papers and educational
+              resources.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#browse">Browse Papers</a></li>
+              <li><a href="#subjects">Subjects</a></li>
+              <li><a href="#about">About Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: rexbabitong@gmail.com</p>
+            <p>Phone: +237 672-088-918</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024Past Papers Hub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
