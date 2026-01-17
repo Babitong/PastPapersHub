@@ -1,137 +1,543 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Past Papers Hub</title>
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
-    <link rel="stylesheet" href="{% static 'styles/components.css' %}" />
-    <link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
+    <title>PastPapers Hub | Free Past Examination Papers</title>
+    <meta
+      name="description"
+      content="Free access to verified past examination papers for secondary and technical education students in Cameroon. No account required."
+    />
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href="{% static  'styles/animations.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
   </head>
-  <body>
-    <!-- Navigation Header -->
-    <header class="header">
-      <nav class="nav">
-        <div class="nav-brand">
-          <i class="fas fa-graduation-cap"></i>
-          <span>Past Papers Hub</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
-          <li>
-            <a href="{% url 'papers' %}" class="nav-link">Browse Papers</a>
-          </li>
-          <li><a href="#subjects" class="nav-link">Subjects</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-        </ul>
-        <!-- <div class="nav-actions">
-                <button class="btn btn-outline">Login</button>
-                <button class="btn btn-primary">Sign Up</button>
-            </div> -->
-        <div class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
-    </header>
 
-    {% block content %}
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon animate-pop-in">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-primary">PastPapers Hub</span>
+            <span class="logo-sub">Cameroon</span>
+          </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="{% url 'about' %}" class="nav-link">About Us</a></li>
+          <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+          <li><a href="{% url 'faq' %}" class="nav-link active">FAQ</a></li>
+          <li> <a href="{% url 'papers' %}" class="btn btn-primary" >Download Papers</a > </li>
+        </ul>
+      </div>
+    </nav>
+
+
+{%  block content %}
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Access Past Papers Anytime, Anywhere</h1>
-        <p class="hero-description">
-          Download past examination papers for O-Level, A-Level, and Other
-          subjects. Perfect for students preparing for their exams.
-        </p>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Papers Available</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">25+</span>
-            <span class="stat-label">Subjects</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">10+</span>
-            <span class="stat-label">Years Covered</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-image">
-        <i class="fas fa-book-open hero-icon"></i>
-      </div>
-    </section>
-
-    <!-- Subjects Section -->
-    <section id="subjects" class="subjects-section">
+    <section class="hero">
       <div class="container">
-        <h2 class="section-title">Popular Subjects</h2>
-        <div class="subjects-grid">
-          <div class="subject-card">
-            <i class="fas fa-calculator"></i>
-            <h3>Mathematics</h3>
-            <p>120+ papers available</p>
+        <div class="hero-content animate-fade-in-up">
+          <h1 class="mb-2">
+            Access Past Examination Papers
+            <span class="text-primary">Easily</span>
+          </h1>
+          <p class="mb-4">
+            Free access to verified past examination papers for students in
+            Cameroon. No account required. Start preparing for exams today!
+          </p>
+          <div class="flex gap-3">
+            <a
+              href="subjects.html"
+              class="btn btn-primary btn-large animate-pop-in delay-300 animate-pulse-glow"
+              >Download Papers</a
+            >
+            <a
+              href="#how-it-works"
+              class="btn btn-secondary btn-large animate-pop-in delay-500"
+              >How It Works</a
+            >
           </div>
-          <div class="subject-card">
-            <i class="fas fa-atom"></i>
-            <h3>Physics</h3>
-            <p>85+ papers available</p>
-          </div>
-          <div class="subject-card">
-            <i class="fas fa-flask"></i>
-            <h3>Chemistry</h3>
-            <p>78+ papers available</p>
-          </div>
-          <div class="subject-card">
-            <i class="fas fa-dna"></i>
-            <h3>Biology</h3>
-            <p>65+ papers available</p>
+
+          <div class="hero-stats mt-5 animate-fade-in delay-700">
+            <div class="stats-grid">
+              <div class="stat-item animate-float-slow">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Past Papers</span>
+              </div>
+              <div class="stat-item animate-float delay-200">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Subjects</span>
+              </div>
+              <div class="stat-item animate-float-slow delay-400">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Free Access</span>
+              </div>
+              <div class="stat-item animate-float delay-600">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Cameroon Regions</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Trust Section -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Why Students Trust PastPapers Hub</h2>
+          <p>
+            We provide a reliable platform designed specifically for Cameroonian
+            students to prepare for exams and excel
+          </p>
+        </div>
+
+        <div class="trust-cards">
+          <div class="card animate-fade-in-left delay-100">
+            <div class="card-icon animate-pulse-glow">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <h3>No Account Required</h3>
+            <p>
+              Access all past papers immediately without creating an account or
+              providing personal information.
+            </p>
+          </div>
+
+          <div class="card animate-fade-in-up delay-200">
+            <div class="card-icon animate-pulse-glow">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Verified Past Papers</h3>
+            <p>
+              All examination papers are verified by qualified teachers to
+              ensure accuracy and relevance.
+            </p>
+          </div>
+
+          <div class="card animate-fade-in-up delay-300">
+            <div class="card-icon animate-pulse-glow">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Teacher Supported</h3>
+            <p>
+              Our content is curated and validated by experienced Cameroonian
+              educators.
+            </p>
+          </div>
+
+          <div class="card animate-fade-in-right delay-400">
+            <div class="card-icon animate-pulse-glow">
+              <i class="fas fa-universal-access"></i>
+            </div>
+            <h3>Free & Accessible</h3>
+            <p>
+              Completely free access optimized for all devices, even with slow
+              internet connections.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">How It Works</h2>
+          <p>Get past papers in just 3 simple steps</p>
+        </div>
+
+        <div class="steps">
+          <div class="step animate-fade-in-left delay-100">
+            <div class="step-number animate-rotate-slow">1</div>
+            <div class="step-content">
+              <h3>Choose Education Type</h3>
+              <p>
+                Select between General Education (O-Level, A-Level) or Technical
+                Education (ITVEE, ATVEE).
+              </p>
+            </div>
+          </div>
+
+          <div class="step animate-fade-in-up delay-300">
+            <div class="step-number animate-rotate-slow delay-100">2</div>
+            <div class="step-content">
+              <h3>Select Level & Subject</h3>
+              <p>
+                Choose your specific examination level and the subject you want
+                to practice.
+              </p>
+            </div>
+          </div>
+
+          <div class="step animate-fade-in-right delay-500">
+            <div class="step-number animate-rotate-slow delay-200">3</div>
+            <div class="step-content">
+              <h3>Download Past Papers</h3>
+              <p>
+                Download or view the past papers directly in your browser. No
+                limits, no fees.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Coverage -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Comprehensive Education Coverage</h2>
+          <p>Supporting all major examination systems in Cameroon</p>
+        </div>
+
+        <div class="coverage-grid">
+          <div class="coverage-card general animate-fade-in-left delay-200">
+            <div class="coverage-header">
+              <div class="coverage-icon animate-float">
+                <i class="fas fa-university"></i>
+              </div>
+              <h3>General Education</h3>
+            </div>
+            <p>
+              Complete collection of past papers for O-Level and A-Level
+              examinations across all subjects.
+            </p>
+            <ul class="coverage-list">
+              <li><i class="fas fa-check"></i> O-Level (GCE Ordinary Level)</li>
+              <li><i class="fas fa-check"></i> A-Level (GCE Advanced Level)</li>
+            </ul>
+            <a
+              href="subjects.html?type=general"
+              class="btn btn-secondary btn-full"
+              >Browse General Papers</a
+            >
+          </div>
+
+          <div class="coverage-card technical animate-fade-in-right delay-400">
+            <div class="coverage-header">
+              <div class="coverage-icon animate-float delay-200">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3>Technical Education</h3>
+            </div>
+            <p>
+              Specialized past papers for technical and vocational examinations
+              including ITVEE and ATVEE.
+            </p>
+            <ul class="coverage-list">
+              <li><i class="fas fa-check"></i> ITVEE (Industrial Technical)</li>
+              <li><i class="fas fa-check"></i> ATVEE (Advanced Technical)</li>
+              <li><i class="fas fa-check"></i> CAP (Certificat d'Aptitude)</li>
+              <li><i class="fas fa-check"></i> BT (Brevet de Technicien)</li>
+              <li><i class="fas fa-check"></i> BT (Brevet de Technicien)</li>
+            </ul>
+            <a
+              href="subject.html?type=technical"
+              class="btn btn-secondary btn-full"
+              >Browse Technical Papers</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section animate-gradient">
+      <div class="container text-center">
+        <h2 class="mb-3 text-white animate-fade-in-down">
+          Start Your Exam Preparation Today
+        </h2>
+        <p class="mb-4 text-white opacity-90 animate-fade-in-up delay-100">
+          Practice with real past examination papers to boost your confidence
+          and improve your scores.
+        </p>
+        <a
+          href="subject.html"
+          class="btn btn-primary btn-large animate-pop-in delay-300"
+        >
+          <i class="fas fa-rocket mr-2"></i> Start Learning Now
+        </a>
+      </div>
+    </section>
+
 
     {% endblock %}
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Past Papers Hub</h3>
-            <p>
-              Your trusted source for past examination papers and educational
-              resources.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#browse">Browse Papers</a></li>
-              <li><a href="#subjects">Subjects</a></li>
-              <li><a href="#about">About Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Contact</h4>
-            <p>Email: rexbabitong@gmail.com</p>
-            <p>Phone: +237 672-088-918</p>
-          </div>
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-primary">PastPapers Hub</span>
+              <span class="logo-sub">Cameroon</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            Providing free access to past examination papers for General and
+            technical education students in Cameroon since 2023.
+          </p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024Past Papers Hub. All rights reserved.</p>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subject.html">Subjects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Education Levels</h3>
+          <ul class="footer-links">
+            <li><a href="subjects.html?type=general">General Education</a></li>
+            <li>
+              <a href="subjects.html?type=technical">Technical Education</a>
+            </li>
+            <li><a href="subjects.html?level=o-level">O-Level Papers</a></li>
+            <li><a href="subjects.html?level=a-level">A-Level Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ITVEE Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ATVEE Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-envelope mr-2"></i> support@PastpapersHub.cm
+            </li>
+            <li><i class="fas fa-phone mr-2"></i> +237 672 088 918</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Limbe, Cameroon</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 PastPapers Hub Cameroon. All rights reserved.</p>
         </div>
       </div>
     </footer>
+
+    <!-- Additional CSS for Home Page -->
+    <style>
+      /* Home Page Specific Styles */
+      .hero-stats .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: var(--spacing-md);
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+      }
+
+      .stat-number {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+      }
+
+      .trust-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .card-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-dark)
+        );
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-xl);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-blue);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .coverage-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-xl);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .coverage-card {
+        padding: var(--spacing-xl);
+      }
+
+      .coverage-header {
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .coverage-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-blue);
+        font-size: 2rem;
+        margin: 0 auto var(--spacing-md);
+        box-shadow: var(--shadow-md);
+      }
+
+      .coverage-list {
+        margin: var(--spacing-md) 0;
+      }
+
+      .coverage-list li {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .coverage-list i {
+        color: var(--accent-success);
+      }
+
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+      }
+
+      .gap-3 {
+        gap: var(--spacing-md);
+      }
+
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+
+      .opacity-90 {
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .hero-stats .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--spacing-md);
+        }
+
+        .steps,
+        .coverage-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flex {
+          flex-direction: column;
+        }
+
+        .flex .btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-stats .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-item {
+          padding: var(--spacing-sm);
+        }
+      }
+    </style>
   </body>
 </html>

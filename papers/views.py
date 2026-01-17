@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Level, Subject, PastPaper, DownloadLog
-from datetime import date
-from django.db.models import Q
+from .models import PastPaper, DownloadLog,Subject
 from django.http import FileResponse, Http404
 from django.utils.encoding import smart_str
 import os
@@ -12,42 +10,100 @@ def home(request):
 
     return render(request, 'index.html')
 
-def papers(request):
-    levels = Level.objects.all().order_by('name')
-    subjects = Subject.objects.all().order_by('name')
-    current_year = date.today().year
-    available_years = range(current_year, 2016, -1)
 
-    # Use select_related to avoid extra queries for subject and level
-    past_papers_qs = PastPaper.objects.all().select_related('subject', 'subject__level')
+def contact(request):
 
-    level_id = request.GET.get('level')
-    subject_id = request.GET.get('subject')
-    year = request.GET.get('year')
-
-    filter_conditions = Q()
-
-    if level_id:
-        filter_conditions &= Q(subject__level__pk=level_id)
-
-    if subject_id:
-        filter_conditions &= Q(subject__pk=subject_id)
-
-    if year:
-        filter_conditions &= Q(year=year)
-
-    papers = past_papers_qs.filter(filter_conditions).order_by('-year', 'subject__name', 'paper_number')
-
-    return render(request, 'papers.html', {
-        'levels': levels,
-        'subjects': subjects,
-        'available_years': available_years,
-        'papers': papers,
-    })
+    return render(request, 'contact.html')
 
 
+def about(request):
+
+    return render(request, 'about.html')
+
+
+def faq(request):
+
+    return render(request, 'faq.html')
+
+
+def papers(requset):
+    return render(requset, 'papers.html')
+
+
+
+     # views.py
+# views.py
+from django.views.generic import ListView
+import django_filters
+from django.db.models import Q
+from .models import PastPaper, EducationType, Level, Subject
+from .filters import PastPaperFilter
+
+
+class PastPaperListView(ListView):
+    model = PastPaper
+    template_name = 'papers.html'
+    context_object_name = 'papers'
+    paginate_by = 20
     
-
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        
+        # Get filter values from GET parameters
+        education_type = self.request.GET.get('education_type')
+        level = self.request.GET.get('level')
+        subject = self.request.GET.get('subject')
+        year = self.request.GET.get('year')
+        paper_number = self.request.GET.get('paper_number')
+        
+        # Apply filters
+        if education_type:
+            queryset = queryset.filter(subject__level__education_type_id=education_type)
+        
+        if level:
+            queryset = queryset.filter(subject__level_id=level)
+            
+        if subject:
+            queryset = queryset.filter(subject_id=subject)
+            
+        if year:
+            queryset = queryset.filter(year=year)
+            
+        if paper_number:
+            queryset = queryset.filter(paper_number=paper_number)
+            
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # Get filter values
+        education_type = self.request.GET.get('education_type')
+        level = self.request.GET.get('level')
+        
+        # Prepare context for template
+        context['education_types'] = EducationType.objects.all()
+        
+        # Filter levels based on education type
+        if education_type:
+            context['levels'] = Level.objects.filter(education_type_id=education_type)
+        else:
+            context['levels'] = Level.objects.none()
+        
+        # Filter subjects based on level
+        if level:
+            context['subjects'] = Subject.objects.filter(level_id=level)
+        else:
+            context['subjects'] = Subject.objects.none()
+        
+        # Pass current filter values
+        context['current_education_type'] = education_type
+        context['current_level'] = level
+        context['current_subject'] = self.request.GET.get('subject')
+        context['current_year'] = self.request.GET.get('year')
+        context['current_paper_number'] = self.request.GET.get('paper_number')
+        
+        return context
 
 
 def get_client_ip(request):

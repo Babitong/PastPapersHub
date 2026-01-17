@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'papers',
 ]
 
@@ -125,3 +126,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'PastPaper Hub',
+    'site_header': 'PastPaper Admin',
+    'site_brand': 'PastPapers',
+    'welcome_sign': 'Welcome to PastPapers Hub',
+    'show_sidebar': True,
+}

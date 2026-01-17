@@ -1,0 +1,818 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | EduPapers Cameroon</title>
+    <meta
+      name="description"
+      content="Frequently Asked Questions about EduPapers Cameroon. Find answers about accessing past papers, download process, and more."
+    />
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href="{% static  'styles/animations.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon animate-pop-in">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-primary">PastPapers</span>
+            <span class="logo-sub">Cameroon</span>
+          </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li><a href="{% url 'papers' %}" class=" btn btn-primary">Download Papers</a></li>
+          <li><a href="{% url 'about' %}" class="nav-link">About Us</a></li>
+          <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- FAQ Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="faq-hero-content text-center animate-fade-in-up">
+          <h1 class="mb-3">Frequently Asked Questions</h1>
+          <p class="mb-4">
+            Find quick answers to common questions about PastPapers Cameroon
+          </p>
+
+          <div class="search-box animate-pop-in delay-300">
+            <div class="search-input">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search for answers..." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="faq-categories animate-fade-in-down">
+          <a href="#access" class="category-btn active"
+            >Access & Registration</a
+          >
+          <a href="#download" class="category-btn">Downloading Papers</a>
+          <a href="#content" class="category-btn">Content & Subjects</a>
+          <a href="#technical" class="category-btn">Technical Issues</a>
+          <a href="#other" class="category-btn">Other Questions</a>
+        </div>
+
+        <!-- Access & Registration -->
+        <div id="access" class="faq-category animate-fade-in-up delay-200">
+          <h2 class="category-title mb-4">Access & Registration</h2>
+
+          <div class="faq-list">
+            <details class="faq-item animate-fade-in-left delay-300">
+              <summary class="faq-question">
+                <span
+                  >Do I need to create an account to access past papers?</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  No, you do not need to create an account or register to access
+                  any past papers on PastPapers Hub Cameroon. All resources are
+                  completely free and accessible without any registration.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-400">
+              <summary class="faq-question">
+                <span>Is there a limit to how many papers I can download?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  No, there are no limits on the number of papers you can
+                  download or view. You can access as many past examination
+                  papers as you need for your studies.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-500">
+              <summary class="faq-question">
+                <span>Are the past papers really free?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, all past papers on EduPapers Cameroon are completely
+                  free. We are a non-profit educational initiative dedicated to
+                  providing equal access to educational resources for all
+                  Cameroonian students.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-600">
+              <summary class="faq-question">
+                <span>Can I access the website on my mobile phone?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, PastPapers Cameroon is fully optimized for mobile
+                  devices. You can access all features, browse subjects, and
+                  download papers from your smartphone or tablet.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Downloading Papers -->
+        <div id="download" class="faq-category animate-fade-in-up delay-300">
+          <h2 class="category-title mb-4">Downloading Papers</h2>
+
+          <div class="faq-list">
+            <details class="faq-item animate-fade-in-left delay-400">
+              <summary class="faq-question">
+                <span>How do I download past examination papers?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  To download papers: 1. Browse to the subject category you need
+                  2. Select the specific subject 3. Choose the year and paper 4.
+                  Click the "Download" button 5. The PDF will download to your
+                  device
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-500">
+              <summary class="faq-question">
+                <span>What file format are the papers in?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  All past papers are provided in PDF format, which can be
+                  opened on any device using free software like Adobe Acrobat
+                  Reader or built-in PDF viewers on most smartphones and
+                  computers.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-600">
+              <summary class="faq-question">
+                <span>Can I view papers online without downloading?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, you can view most papers directly in your browser by
+                  clicking the "View PDF" button. This is useful if you have
+                  limited storage space or want to quickly review a paper.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-700">
+              <summary class="faq-question">
+                <span>Why won't my downloaded PDF open?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  If your PDF won't open, try these solutions: - Ensure you have
+                  a PDF reader installed - Check your internet connection if
+                  viewing online - Try downloading the file again - Contact
+                  support if the issue persists
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Content & Subjects -->
+        <div id="content" class="faq-category animate-fade-in-up delay-400">
+          <h2 class="category-title mb-4">Content & Subjects</h2>
+
+          <div class="faq-list">
+            <details class="faq-item animate-fade-in-left delay-500">
+              <summary class="faq-question">
+                <span>What examination systems do you cover?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  We cover both General Education (O-Level, A-Level, BEPC,
+                  Probatoire, Baccalaureat) and Technical Education (ITVEE,
+                  ATVEE, CAP, BT) examination systems in Cameroon.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-600">
+              <summary class="faq-question">
+                <span>How many subjects are available?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  We currently have over 25 subjects available across all
+                  examination levels, including sciences, humanities, languages,
+                  and technical subjects.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-700">
+              <summary class="faq-question">
+                <span>Are the answer keys included?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  We provide answer keys for most papers where available. When
+                  answer keys are provided, they are clearly marked and can be
+                  downloaded alongside the question papers.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-800">
+              <summary class="faq-question">
+                <span>How current are the papers?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  We regularly update our database with the latest examination
+                  papers. We have papers dating back several years, with the
+                  most recent papers from the last examination sessions.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Technical Issues -->
+        <div id="technical" class="faq-category animate-fade-in-up delay-500">
+          <h2 class="category-title mb-4">Technical Issues</h2>
+
+          <div class="faq-list">
+            <details class="faq-item animate-fade-in-left delay-600">
+              <summary class="faq-question">
+                <span>The website is loading slowly. What can I do?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  If the website is loading slowly, try: - Refreshing the page -
+                  Checking your internet connection - Clearing your browser
+                  cache - Trying a different browser - Contacting us if the
+                  issue persists
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-700">
+              <summary class="faq-question">
+                <span
+                  >I found a broken link or missing paper. How do I report
+                  it?</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Please use our contact form or email support@edupapers.cm to
+                  report any broken links or missing papers. Include as much
+                  detail as possible about the paper you're looking for.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-800">
+              <summary class="faq-question">
+                <span>Can I use the website without JavaScript?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, EduPapers Cameroon works without JavaScript. All core
+                  functionality, including browsing and downloading papers, is
+                  available even with JavaScript disabled.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-900">
+              <summary class="faq-question">
+                <span>Is the website secure?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, we prioritize security and privacy. We don't collect
+                  personal information, and all downloads are safe. We regularly
+                  update our security measures to protect our users.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Other Questions -->
+        <div id="other" class="faq-category animate-fade-in-up delay-600">
+          <h2 class="category-title mb-4">Other Questions</h2>
+
+          <div class="faq-list">
+            <details class="faq-item animate-fade-in-left delay-700">
+              <summary class="faq-question">
+                <span>Can I contribute past papers to your collection?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes! We welcome contributions from teachers, schools, and
+                  students. Please contact us at contributions@edupapers.cm with
+                  scanned copies of past papers you'd like to share.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-800">
+              <summary class="faq-question">
+                <span>Are you affiliated with the Cameroon government?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  EduPapers Cameroon is an independent non-profit initiative. We
+                  work in partnership with educational institutions and teachers
+                  across Cameroon but are not a government agency.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-900">
+              <summary class="faq-question">
+                <span>How can I support EduPapers Cameroon?</span>
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  You can support us by: - Sharing our website with other
+                  students - Contributing past papers - Providing feedback for
+                  improvement - Volunteering as a content verifier
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item animate-fade-in-left delay-1000">
+              <summary class="faq-question">
+                <span
+                  >Do you offer other educational resources besides past
+                  papers?</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Currently, we focus exclusively on providing past examination
+                  papers. We believe in doing one thing exceptionally well to
+                  best serve Cameroonian students.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Still Have Questions -->
+    <section class="section bg-light">
+      <div class="container text-center">
+        <div class="still-questions animate-fade-in-up">
+          <div class="questions-icon animate-float">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <h2 class="mb-3">Still Have Questions?</h2>
+          <p class="mb-4">
+            Can't find the answer you're looking for? Contact our support team
+            for personalized assistance.
+          </p>
+          <a
+            href="contact.html"
+            class="btn btn-primary btn-large animate-pop-in delay-300"
+          >
+            <i class="fas fa-headset mr-2"></i> Contact Support
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Quick Navigation</h2>
+          <p>Find what you need faster</p>
+        </div>
+
+        <div class="quick-links">
+          <a
+            href="subjects.html"
+            class="quick-link animate-fade-in-left delay-200"
+          >
+            <div class="link-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Browse Subjects</h3>
+            <p>Find papers by subject and level</p>
+          </a>
+
+          <a href="about.html" class="quick-link animate-fade-in-up delay-300">
+            <div class="link-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>About Us</h3>
+            <p>Learn about our mission</p>
+          </a>
+
+          <a
+            href="contact.html"
+            class="quick-link animate-fade-in-up delay-400"
+          >
+            <div class="link-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Contact</h3>
+            <p>Get in touch with us</p>
+          </a>
+
+          <a
+            href="index.html"
+            class="quick-link animate-fade-in-right delay-500"
+          >
+            <div class="link-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Home</h3>
+            <p>Return to homepage</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section animate-gradient">
+      <div class="container text-center">
+        <h2 class="mb-3 text-white animate-fade-in-down">
+          Ready to Start Learning?
+        </h2>
+        <p class="mb-4 text-white opacity-90 animate-fade-in-up delay-100">
+          Access thousands of past papers to boost your exam preparation
+        </p>
+        <a
+          href="subjects.html"
+          class="btn btn-primary btn-large animate-pop-in delay-300"
+        >
+          <i class="fas fa-rocket mr-2"></i> Browse All Papers
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-primary">PastPapers Hub</span>
+              <span class="logo-sub">Cameroon</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            Providing free access to past examination papers for secondary and
+            technical education students in Cameroon since 2023.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subject.html">Subjects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Education Levels</h3>
+          <ul class="footer-links">
+            <li><a href="subjects.html?type=general">General Education</a></li>
+            <li>
+              <a href="subjects.html?type=technical">Technical Education</a>
+            </li>
+            <li><a href="subjects.html?level=o-level">O-Level Papers</a></li>
+            <li><a href="subjects.html?level=a-level">A-Level Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ITVEE Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ATVEE Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope mr-2"></i> support@edupapers.cm</li>
+            <li><i class="fas fa-phone mr-2"></i> +237 672 088 918</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Limbe, Cameroon</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 PapersPapers Hub Cameroon. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FAQ Page Specific Styles -->
+    <style>
+      .faq-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .search-box {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .search-input {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-sm);
+        box-shadow: var(--shadow-md);
+      }
+
+      .search-input input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        background: none;
+      }
+
+      .faq-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        margin-bottom: var(--spacing-xl);
+        border-bottom: 2px solid var(--gray-200);
+        padding-bottom: var(--spacing-lg);
+      }
+
+      .category-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--gray-100);
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        color: var(--gray-600);
+        transition: all var(--transition-base);
+        border: none;
+        cursor: pointer;
+      }
+
+      .category-btn.active,
+      .category-btn:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+      }
+
+      .faq-category {
+        margin-bottom: var(--spacing-xxl);
+      }
+
+      .category-title {
+        color: var(--primary-blue);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 2px solid var(--gray-200);
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        margin-bottom: var(--spacing-sm);
+        border: 1px solid var(--gray-200);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      .faq-item[open] {
+        border-color: var(--primary-blue);
+        box-shadow: var(--shadow-md);
+      }
+
+      .faq-item[open] .faq-question {
+        background: var(--primary-blue);
+        color: var(--white);
+      }
+
+      .faq-item[open] .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-lg);
+        background: var(--gray-50);
+        font-weight: 600;
+        font-size: 1.125rem;
+        cursor: pointer;
+        list-style: none;
+        transition: all var(--transition-base);
+      }
+
+      .faq-question:hover {
+        background: var(--gray-100);
+      }
+
+      .faq-question i {
+        transition: transform var(--transition-base);
+        font-size: 0.875rem;
+      }
+
+      .faq-answer {
+        padding: var(--spacing-lg);
+        background: var(--white);
+        line-height: 1.7;
+      }
+
+      .faq-answer p {
+        margin: 0;
+      }
+
+      .still-questions {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .questions-icon {
+        width: 100px;
+        height: 100px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 3rem;
+        margin: 0 auto var(--spacing-lg);
+      }
+
+      .quick-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .quick-link {
+        text-align: center;
+        padding: var(--spacing-lg);
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        transition: transform var(--transition-base);
+      }
+
+      .quick-link:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .link-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-dark)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.75rem;
+        margin: 0 auto var(--spacing-md);
+      }
+
+      .quick-link h3 {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-xs);
+        color: var(--gray-900);
+      }
+
+      .quick-link p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin: 0;
+      }
+
+      /* Hide default details marker */
+      details > summary {
+        list-style: none;
+      }
+
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .faq-categories {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .category-btn {
+          width: 100%;
+          max-width: 300px;
+          text-align: center;
+        }
+
+        .faq-question {
+          padding: var(--spacing-md);
+          font-size: 1rem;
+        }
+
+        .faq-answer {
+          padding: var(--spacing-md);
+        }
+
+        .quick-links {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .quick-links {
+          grid-template-columns: 1fr;
+        }
+
+        .questions-icon {
+          width: 80px;
+          height: 80px;
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>

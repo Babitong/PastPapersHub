@@ -1,19 +1,88 @@
-{% extends "index.html" %}
-{% block content %}
 
-<div class="container main-content">
+{% load static %}
+
+<!-- pastpaper_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+  {% block content %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Browse past examination papers by subject and education level. Free access to O-Level, A-Level, and Technical Education papers."
+    />
+    <title>Past Papers Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href="{% static  'styles/animations.css' %}" />
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href=" {% static 'styles/papers.css' %} " />
+</head>
+<body>
+
+  <header>
+
+<!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon animate-pop-in">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-primary">PastPapers Hub</span>
+            <span class="logo-sub">Cameroon</span>
+          </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li><a href="{% url 'about' %}" class="nav-link">About Us</a></li>
+          <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+          <li><a href="{% url 'faq' %}" class="nav-link active">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+  </header>
+    <!-- Filter Form -->
+    <div class="filter-wrapper">
+        <div class="filter-header">
+            <h1><i class="fas fa-search"></i> Filter Past Papers</h1>
+            <p>Select your criteria to find the perfect study materials</p>
+        </div>
         
-        <div class="filter-box">
-            <h2>Find a Past Paper</h2>
-            
-            <form method="GET" action="{% url 'papers' %}" class="filter-form">
+        <div class="filter-container">
+            <form method="get" class="filter-form">
+                <div class="form-group">
+                    <label for="education_type"><i class="fas fa-graduation-cap"></i> Education Type</label>
+                    <select name="education_type" id="education_type" onchange="this.form.submit()">
+                        <option value="">Select Education Type</option>
+                        {% for edu_type in education_types %}
+                            <option value="{{ edu_type.id }}" 
+                                {% if current_education_type == edu_type.id|stringformat:"s" %}selected{% endif %}>
+                                {{ edu_type.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
                 
                 <div class="form-group">
-                    <label for="id_level">1. Select Level</label>
-                    <select name="level" id="id_level" class="input-select">
-                        <option value="">Any Level</option>
+                    <label for="level"><i class="fas fa-layer-group"></i> Level</label>
+                    <select name="level" id="level" onchange="this.form.submit()">
+                        <option value="">Select Level</option>
                         {% for level in levels %}
-                            <option value="{{ level.pk }}" {% if request.GET.level|stringformat:"s" == level.pk|stringformat:"s" %}selected{% endif %}>
+                            <option value="{{ level.id }}" 
+                                {% if current_level == level.id|stringformat:"s" %}selected{% endif %}>
                                 {{ level.name }}
                             </option>
                         {% endfor %}
@@ -21,87 +90,98 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="id_subject">2. Select Subject</label>
-                    <select name="subject" id="id_subject" class="input-select">
-                        <option value="">Any Subject</option>
+                    <label for="subject"><i class="fas fa-book"></i> Subject</label>
+                    <select name="subject" id="subject">
+                        <option value="">Select Subject</option>
                         {% for subject in subjects %}
-                            <option value="{{ subject.pk }}" {% if request.GET.subject|stringformat:"s" == subject.pk|stringformat:"s" %}selected{% endif %}>
-                                {{ subject.name }} ({{ subject.level.name }})
+                            <option value="{{ subject.id }}" 
+                                {% if current_subject == subject.id|stringformat:"s" %}selected{% endif %}>
+                                {{ subject.code }} - {{ subject.name }}
                             </option>
                         {% endfor %}
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="id_year">3. Select Year</label>
-                    <select name="year" id="id_year" class="input-select">
-                        <option value="">Any Year</option>
-                        {% for year in available_years %}
-                            <option value="{{ year }}" {% if request.GET.year|stringformat:"s" == year|stringformat:"s" %}selected{% endif %}>
-                                {{ year }}
-                            </option>
-                        {% endfor %}
+                    <label for="year"><i class="fas fa-calendar-alt"></i> Year</label>
+                    <input type="number" name="year" id="year" 
+                           value="{{ current_year|default_if_none:'' }}"
+                           placeholder="e.g., 2024" min="1900" max="2100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="paper_number"><i class="fas fa-file-alt"></i> Paper Type</label>
+                    <select name="paper_number" id="paper_number">
+                        <option value="">Select Paper Type</option>
+                        <option value="1" {% if current_paper_number == '1' %}selected{% endif %}>Paper 1 (MCQ)</option>
+                        <option value="2" {% if current_paper_number == '2' %}selected{% endif %}>Paper 2 (Essay/Problems Solving)</option>
+                        <option value="3" {% if current_paper_number == '3' %}selected{% endif %}>Paper 3 (Practical)</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-red">
-                        <i class="fas fa-search"></i> Show Papers
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-filter"></i> Apply Filters
                     </button>
+                    
                 </div>
-
             </form>
         </div>
-
-        <h2 class="results-heading">
-            <span class="green-text">#</span> {{ papers.count }} Results
-        </h2>
-
-        <div class="table-container">
-            <table class="paper-table">
-                <thead class="green-header">
-                    <tr>
-                        <th>Paper</th>
-                        <th>Subject</th>
-                        <th>Level</th>
-                        <th>Year</th>
-                        <th class="actions-col">Download </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for paper in papers %}
-                    <tr>
-                        
-                        <td data-label="Paper">{{ paper.get_paper_number_display }}</td>
-                        <td data-label="Subject">{{ paper.subject.name }}</td>
-                        <td data-label="Level">{{ paper.subject.level.name }}</td>
-                        <td data-label="Year" class="fw-bold">{{ paper.year }}</td>
-                         <td data-label="Download File" class="actions-col">
-                            
-                            <a href="{% url 'download_paper' paper.pk %}" class="btn btn-green">
-                                <i class="fas fa-file-pdf"></i> Download Paper
-                            </a>
-                            
-                            {% comment %} {% if paper.marking_scheme_file %}
-                            <a href="{{ paper.marking_scheme_file.url }}" class="btn btn-red-outline" download>
-                                <i class="fas fa-book"></i> Scheme
-                            </a>
-                            {% else %}
-                            <span class="text-muted">No Scheme</span>
-                            {% endif %} {% endcomment %}
-                        </td> 
-                    </tr>
-                    {% empty %}
-                    <tr>
-                        <td colspan="5" class="no-results">
-                            No past papers match your current filters. Try broadening your selection.
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
     </div>
 
+    <!-- Results Section -->
+    {% if papers %}
+    <div class="results-container">
+        <div class="results-header">
+            <h2><i class="fas fa-file-pdf"></i> Search Results</h2>
+        </div>
+        <div class="papers-list">
+            <span class="results-count"><i class="fas fa-paperclip"></i> Found {{ papers|length }} paper(s)</span>
+            
+            {% for paper in papers %}
+                <div class="paper-card">
+                    <h4>{{ paper.subject.code }} - {{ paper.subject.name }} ({{ paper.year }})</h4>
+                    
+                    <div class="paper-meta">
+                        <span class="meta-item">
+                            <i class="fas fa-file-alt"></i> {{ paper.get_paper_number_display }}
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-layer-group"></i> {{ paper.subject.level.name }}
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-graduation-cap"></i> {{ paper.subject.level.education_type.name }}
+                        </span>
+                    </div>
+                    
+                    <div class="paper-actions">
+                         <a href="{%  url 'download_paper' paper.id %}" target="_blank" class="download-btn">
+                            <i class="fas fa-download"></i> Download Paper
+                        </a>
+                        {% if paper.marking_scheme_file %}
+                            {% comment %} <a href="{{ paper.marking_scheme_file.url }}" target="_blank" class="download-btn scheme"> {% endcomment %}
+                                <i class="fas fa-check-double"></i> Marking Scheme
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% elif request.GET %}
+    <div class="results-container">
+        <div class="no-results">
+            <i class="fas fa-search"></i>
+            <h3>No Papers Found</h3>
+            <p>No papers match your current filter criteria. Try adjusting your search parameters.</p>
+        </div>
+    </div>
+    {% endif %}
+</body>
+
 {% endblock %}
+</html>
+
+
+

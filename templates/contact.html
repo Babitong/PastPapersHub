@@ -1,0 +1,624 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | EduPapers Cameroon</title>
+    <meta
+      name="description"
+      content="Contact EduPapers Cameroon for support, partnerships, or feedback. We're here to help students access free past examination papers."
+    />
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href="{% static  'styles/animations.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon animate-pop-in">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-primary">PastPapers Hub</span>
+            <span class="logo-sub">Cameroon</span>
+          </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li><a href="{% url 'papers' %}" class="nav-link">Download Papers</a></li>
+          <li><a href="{% url 'about' %}" class="nav-link">About Us</a></li>
+          <li><a href="{% url 'faq' %}" class="nav-link active">FAQ</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="contact-hero-content text-center animate-fade-in-up">
+          <h1 class="mb-3">Get in Touch With Us</h1>
+          <p class="mb-4">
+            Have questions, feedback, or need assistance? We're here to help you
+            access the educational resources you need.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form animate-fade-in-left delay-200">
+            <h2 class="mb-4">Send Us a Message</h2>
+            <form class="form">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <select id="subject" class="form-control" required>
+                  <option value="">Select a subject</option>
+                  <option value="support">Technical Support</option>
+                  <option value="papers">Missing Papers</option>
+                  <option value="partnership">Partnership Inquiry</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  placeholder="Type your message here..."
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full animate-pop-in delay-300"
+              >
+                <i class="fas fa-paper-plane mr-2"></i> Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info animate-fade-in-right delay-400">
+            <h2 class="mb-4">Contact Information</h2>
+
+            <div class="info-cards">
+              <div class="info-card animate-fade-in-up delay-500">
+                <div class="info-icon animate-float">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Email Address</h3>
+                  <p>support@PastpapersHub.cm</p>
+                  <p>partnerships@PastpapersHub.cm</p>
+                </div>
+              </div>
+
+              <div class="info-card animate-fade-in-up delay-600">
+                <div class="info-icon animate-float delay-100">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Phone Numbers</h3>
+                  <p>+237 670 000 000 (Support)</p>
+                  <p>+237 671 000 000 (Partnerships)</p>
+                </div>
+              </div>
+
+              <div class="info-card animate-fade-in-up delay-700">
+                <div class="info-icon animate-float delay-200">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Location</h3>
+                  <p>PastPapers Cameroon</p>
+                  <p>Limbe, South West Region</p>
+                  <p>Cameroon</p>
+                </div>
+              </div>
+
+              <div class="info-card animate-fade-in-up delay-800">
+                <div class="info-icon animate-float delay-300">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Working Hours</h3>
+                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p>Saturday: 9:00 AM - 1:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links mt-5 animate-fade-in-up delay-900">
+              <h3 class="mb-3">Follow Us</h3>
+              <div class="social-icons">
+                <a href="#" class="social-icon animate-float" title="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon animate-float delay-100"
+                  title="Twitter"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon animate-float delay-200"
+                  title="Instagram"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon animate-float delay-300"
+                  title="LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon animate-float delay-400"
+                  title="YouTube"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Preview -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Frequently Asked Questions</h2>
+          <p>Quick answers to common questions</p>
+        </div>
+
+        <div class="faq-preview animate-fade-in-up">
+          <div class="faq-item">
+            <h3 class="faq-question">How do I download past papers?</h3>
+            <p class="faq-answer">
+              Simply browse to the subject and paper you need, then click the
+              "Download" button. No registration required.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Are the papers really free?</h3>
+            <p class="faq-answer">
+              Yes! All papers on EduPapers Cameroon are completely free.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How can I report missing papers?</h3>
+            <p class="faq-answer">
+              Use the contact form above or email support@PastpapersHub.cm with
+              details of the missing papers.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="faq.html" class="btn btn-primary animate-pop-in delay-300">
+            <i class="fas fa-question-circle mr-2"></i> View All FAQs
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Our Coverage Area</h2>
+          <p>We serve students across all 10 regions of Cameroon</p>
+        </div>
+
+        <div class="map-container animate-fade-in-up delay-200">
+          <div class="map-placeholder animate-gradient">
+            <i class="fas fa-map"></i>
+            <div class="map-overlay">
+              <h3>Cameroon</h3>
+              <p>10 Regions Served</p>
+            </div>
+          </div>
+
+          <div class="region-stats">
+            <div class="region-stat animate-fade-in-left delay-300">
+              <span class="stat-number">10</span>
+              <span class="stat-label">Regions</span>
+            </div>
+            <div class="region-stat animate-fade-in-up delay-400">
+              <span class="stat-number">58</span>
+              <span class="stat-label">Divisions</span>
+            </div>
+            <div class="region-stat animate-fade-in-up delay-500">
+              <span class="stat-number">360+</span>
+              <span class="stat-label">Schools</span>
+            </div>
+            <div class="region-stat animate-fade-in-right delay-600">
+              <span class="stat-number">25K+</span>
+              <span class="stat-label">Students</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section animate-gradient">
+      <div class="container text-center">
+        <h2 class="mb-3 text-white animate-fade-in-down">
+          Need Immediate Assistance?
+        </h2>
+        <p class="mb-4 text-white opacity-90 animate-fade-in-up delay-100">
+          Check our FAQ section for quick answers to common questions
+        </p>
+        <a
+          href="faq.html"
+          class="btn btn-primary btn-large animate-pop-in delay-300"
+        >
+          <i class="fas fa-question-circle mr-2"></i> Visit FAQ Section
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-primary">EduPapers</span>
+              <span class="logo-sub">Cameroon</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            Providing free access to past examination papers for General and
+            Technical education students in Cameroon since 2023.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subject.html">Subjects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Education Levels</h3>
+          <ul class="footer-links">
+            <li><a href="subjects.html?type=general">General Education</a></li>
+            <li>
+              <a href="subjects.html?type=technical">Technical Education</a>
+            </li>
+            <li><a href="subjects.html?level=o-level">O-Level Papers</a></li>
+            <li><a href="subjects.html?level=a-level">A-Level Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ITVEE Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ATVEE Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-envelope mr-2"></i> support@PastpapersHub.cm
+            </li>
+            <li><i class="fas fa-phone mr-2"></i> +237 670 000 000</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Limbe, Cameroon</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 PastPapers Hub Cameroon. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Contact Page Specific Styles -->
+    <style>
+      .contact-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-form,
+      .contact-info {
+        padding: var(--spacing-xl);
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
+      .info-cards {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+      }
+
+      .info-card {
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+      }
+
+      .info-icon {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-dark)
+        );
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.5rem;
+      }
+
+      .info-content h3 {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-xs);
+        color: var(--gray-900);
+      }
+
+      .info-content p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+        margin-bottom: 0.25rem;
+      }
+
+      .social-links {
+        text-align: center;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.25rem;
+        transition: all var(--transition-base);
+      }
+
+      .social-icon:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+      }
+
+      .faq-preview {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        margin-bottom: var(--spacing-lg);
+        padding: var(--spacing-lg);
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+      }
+
+      .faq-question {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--primary-blue);
+      }
+
+      .faq-answer {
+        color: var(--gray-600);
+        line-height: 1.6;
+      }
+
+      .map-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .map-placeholder {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        border-radius: var(--radius-xl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 4rem;
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+      }
+
+      .map-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: var(--spacing-md);
+        text-align: center;
+      }
+
+      .map-overlay h3 {
+        color: var(--white);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .map-overlay p {
+        color: var(--gray-300);
+        margin: 0;
+      }
+
+      .region-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-xl);
+      }
+
+      .region-stat {
+        text-align: center;
+        padding: var(--spacing-lg);
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+      }
+
+      .region-stat .stat-number {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .region-stat .stat-label {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+      }
+
+      @media (max-width: 992px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .map-placeholder {
+          height: 250px;
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-form,
+        .contact-info {
+          padding: var(--spacing-lg);
+        }
+
+        .info-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .info-icon {
+          margin: 0 auto var(--spacing-sm);
+        }
+
+        .region-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .region-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .social-icons {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </body>
+</html>

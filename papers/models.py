@@ -1,13 +1,37 @@
 
 from django.db import models
 
-# 1. CATEGORY: GCE Level (Ordinary or Advanced)
-class Level(models.Model):
-    """GCE O/L or A/L."""
-    name = models.CharField(max_length=50, unique=True, help_text="e.g., Ordinary Level (O/L) or Advanced Level (A/L)")
-    
+# EDUCATION TYPE
+class EducationType(models.Model):
+    name = models.CharField(max_length=50, unique=True,help_text='General Education or Technical Education')
+
     def __str__(self):
         return self.name
+
+# 1. CATEGORY: GCE Level (Ordinary or Advanced)
+class Level(models.Model):
+    education_type = models.ForeignKey(EducationType, on_delete=models.CASCADE, related_name='levels')
+    """GCE O/L or A/L."""
+    name = models.CharField(max_length=50, unique=True, help_text="e.g., Ordinary Level (O/L) , Advanced Level (A/L) , ITVEE , ATVEE")
+
+    class meta:
+        unique_together = ('education_type','name')
+    
+    def __str__(self):
+        return f'{self.name}({self.education_type.name})'
+    
+
+# DEPARTMENT CLASS
+class Department(models.Model):
+    level = models.ForeignKey(Level, on_delete=models.CASCADE, related_name='department')
+    name = models.CharField(max_length=100)
+
+    class meta:
+        unique_together = ('level','name')
+
+    def __str__(self):
+        return f'{self.name} ({self.level.name})'
+
 
 # 2. CATEGORY: Subject (Mathematics, History, etc.)
 class Subject(models.Model):
@@ -15,6 +39,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=10, unique=True, help_text="e.g., 0570 for Mathematics")
     level = models.ForeignKey(Level, on_delete=models.CASCADE, related_name='subjects')
+    department = models.ManyToManyField(Department, blank=True)
 
     class Meta:
         # Prevents adding 'Mathematics' for O/L again if it already exists
@@ -43,11 +68,11 @@ class PastPaper(models.Model):
     
     # The crucial file field for students to download
     # store under MEDIA_ROOT/past_papers/
-    file = models.FileField(upload_to='past_papers/')
+    file = models.FileField(upload_to='media/past_papers/')
 
     # Optional but helpful field (e.g., marking scheme)
     # store marking schemes under MEDIA_ROOT/marking_schemes/
-    marking_scheme_file = models.FileField(upload_to='marking_schemes/', null=True, blank=True)
+    marking_scheme_file = models.FileField(upload_to='media/marking_schemes/', null=True, blank=True)
     
     class Meta:
         # Ensures no duplicate entries for the exact same paper
@@ -68,5 +93,3 @@ class DownloadLog(models.Model):
 
 
 
-
-# Create your models here.

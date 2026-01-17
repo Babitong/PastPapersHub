@@ -1,0 +1,501 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | PastPapers Hub Cameroon</title>
+    <meta
+      name="description"
+      content="Learn about EduPapers Cameroon's mission to provide free access to past examination papers for students across Cameroon."
+    />
+    <link rel="stylesheet" href=" {% static 'styles/style.css' %} " />
+    <link rel="stylesheet" href="{% static  'styles/animations.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon animate-pop-in">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-primary">PastPapers Hub</span>
+            <span class="logo-sub">Cameroon</span>
+          </div>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+          <li><a href="{% url 'faq' %}" class="nav-link active">FAQ</a></li>
+          <li>
+            <a href="{% url 'papers' %}" class="btn btn-primary"
+              >Download Papers</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="about-hero-content text-center animate-fade-in-up">
+          <h1 class="mb-3">Our Mission: Equal Access to Education</h1>
+          <p class="mb-4">
+            PastPapers Hub Cameroon is dedicated to providing free, high-quality
+            educational resources to students across Cameroon.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Our Story</h2>
+          <p>How we started and why we continue</p>
+        </div>
+
+        <div class="story-grid">
+          <div class="story-image animate-fade-in-left delay-200">
+            <div class="image-placeholder animate-gradient">
+              <i class="fas fa-book-open"> </i>
+            </div>
+          </div>
+          <div class="story-content animate-fade-in-right delay-400">
+            <h3 class="mb-3">Bridging the Educational Divide</h3>
+            <p class="mb-3">
+              Founded in 2023 by a group of Cameroonian educators and software
+              developers, PastPapers Hub Cameroon was born out of a recognition
+              that many students lack access to quality study materials,
+              particularly past examination papers.
+            </p>
+            <p class="mb-3">
+              We observed that while some students in urban areas could afford
+              expensive study guides and past papers, those in rural and
+              underserved communities struggled to access these essential
+              resources. This disparity created an uneven playing field in
+              national examinations.
+            </p>
+            <p>
+              Our platform was created to level this playing field, ensuring
+              every Cameroonian student, regardless of their location or
+              economic background, can access the materials they need to succeed
+              academically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Our Core Values</h2>
+          <p>The principles that guide our work</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card animate-fade-in-up delay-100">
+            <div class="value-icon animate-float">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Accessibility</h3>
+            <p>
+              We believe education should be accessible to all. Our platform is
+              completely free, requires no registration, and works on all
+              devices.
+            </p>
+          </div>
+
+          <div class="value-card animate-fade-in-up delay-200">
+            <div class="value-icon animate-float delay-100">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Quality</h3>
+            <p>
+              All resources are verified by qualified Cameroonian educators to
+              ensure accuracy and relevance to current examination standards.
+            </p>
+          </div>
+
+          <div class="value-card animate-fade-in-up delay-300">
+            <div class="value-icon animate-float delay-200">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Community</h3>
+            <p>
+              We work collaboratively with teachers, schools, and educational
+              organizations across Cameroon to build our resource library.
+            </p>
+          </div>
+
+          <div class="value-card animate-fade-in-up delay-400">
+            <div class="value-icon animate-float delay-300">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Focus</h3>
+            <p>
+              We concentrate exclusively on providing past examination papers -
+              doing one thing and doing it exceptionally well.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5 animate-fade-in-down">
+          <h2 class="mb-2">Our Team</h2>
+          <p>The dedicated people behind EduPapers Cameroon</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-member animate-fade-in-up delay-100">
+            <div class="member-image animate-float-slow">
+              <div class="image-placeholder">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+            </div>
+            <h3>Dr. Amina Bello</h3>
+            <p class="member-role">Educational Director</p>
+            <p>
+              Former mathematics teacher with 15+ years experience in Cameroon's
+              education system.
+            </p>
+          </div>
+
+          <div class="team-member animate-fade-in-up delay-200">
+            <div class="member-image animate-float-slow delay-100">
+              <div class="image-placeholder">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+            </div>
+            <h3>Babitong Rex Makia II</h3>
+            <p class="member-role">Technical Lead</p>
+            <p>
+              Software engineer passionate about using technology to solve
+              challenges.
+            </p>
+          </div>
+
+          <div class="team-member animate-fade-in-up delay-300">
+            <div class="member-image animate-float-slow delay-200">
+              <div class="image-placeholder">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+            </div>
+            <h3>Sarah Nfor</h3>
+            <p class="member-role">Content Coordinator</p>
+            <p>
+              Coordinates with teachers and schools to collect and verify
+              examination materials.
+            </p>
+          </div>
+
+          <div class="team-member animate-fade-in-up delay-400">
+            <div class="member-image animate-float-slow delay-300">
+              <div class="image-placeholder">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+            </div>
+            <h3>Volunteer Network</h3>
+            <p class="member-role">Our Support Team</p>
+            <p>
+              Dedicated teachers and students across Cameroon who contribute to
+              our resource library.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="stats-cards">
+          <div class="stat-card animate-fade-in-left delay-100">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Past Papers</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-up delay-200">
+            <div class="stat-number">25,000+</div>
+            <div class="stat-label">Monthly Users</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-up delay-300">
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Partner Schools</div>
+          </div>
+
+          <div class="stat-card animate-fade-in-right delay-400">
+            <div class="stat-number">10</div>
+            <div class="stat-label">Cameroon Regions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section animate-gradient">
+      <div class="container text-center">
+        <h2 class="mb-3 text-white animate-fade-in-down">
+          Join Us in Our Mission
+        </h2>
+        <p class="mb-4 text-white opacity-90 animate-fade-in-up delay-100">
+          Help us expand our resource library and reach more students across
+          Cameroon
+        </p>
+        <div class="flex justify-center gap-3">
+          <a
+            href="contact.html"
+            class="btn btn-primary btn-large animate-pop-in delay-300"
+            >Partner With Us</a
+          >
+          <a
+            href="subject.html"
+            class="btn btn-secondary btn-large animate-pop-in delay-500"
+            >Browse Resources</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-primary">PastPapers Hub</span>
+              <span class="logo-sub">Cameroon</span>
+            </div>
+          </a>
+          <p class="footer-description">
+            Providing free access to past examination papers for General and
+            Technical education students in Cameroon since 2023.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subject.html">Subjects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Education Levels</h3>
+          <ul class="footer-links">
+            <li><a href="subjects.html?type=general">General Education</a></li>
+            <li>
+              <a href="subjects.html?type=technical">Technical Education</a>
+            </li>
+            <li><a href="subjects.html?level=o-level">O-Level Papers</a></li>
+            <li><a href="subjects.html?level=a-level">A-Level Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ITVEE Papers</a></li>
+            <li><a href="subjects.html?type=itvee">ATVEE Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li>
+              <i class="fas fa-envelope mr-2"></i> support@PastpapersHub.cm
+            </li>
+            <li><i class="fas fa-phone mr-2"></i> +237 672 088 918</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Limbe, Cameroon</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 EduPapers Cameroon. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- About Page Specific Styles -->
+    <style>
+      .about-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .image-placeholder {
+        width: 100%;
+        height: 400px;
+        border-radius: var(--radius-xl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 5rem;
+        box-shadow: var(--shadow-xl);
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .value-card {
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+
+      .value-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-dark)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 2rem;
+        margin: 0 auto var(--spacing-md);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+
+      .member-image {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .member-image .image-placeholder {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        background: var(--white);
+        color: var(--primary-blue);
+        font-size: 3.5rem;
+        border: 5px solid var(--white);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .member-role {
+        color: var(--primary-blue);
+        font-weight: 600;
+        margin-bottom: var(--spacing-sm);
+        font-size: 0.875rem;
+      }
+
+      .stats-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .stats-cards .stat-card {
+        text-align: center;
+        padding: var(--spacing-xl);
+        background: var(--white);
+      }
+
+      .stats-cards .stat-number {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .stats-cards .stat-label {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .story-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .image-placeholder {
+          height: 300px;
+          font-size: 3.5rem;
+        }
+
+        .member-image .image-placeholder {
+          width: 120px;
+          height: 120px;
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>
