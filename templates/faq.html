@@ -68,12 +68,12 @@
             Find quick answers to common questions about PastPapers Cameroon
           </p>
 
-          <div class="search-box animate-pop-in delay-300">
+          {% comment %} <div class="search-box animate-pop-in delay-300"> 
             <div class="search-input">
               <i class="fas fa-search"></i>
               <input type="text" placeholder="Search for answers..." />
             </div>
-          </div>
+          </div>{% endcomment %}
         </div>
       </div>
     </section>
@@ -434,7 +434,7 @@
             for personalized assistance.
           </p>
           <a
-            href="contact.html"
+            href="{% url 'contact' %}"
             class="btn btn-primary btn-large animate-pop-in delay-300"
           >
             <i class="fas fa-headset mr-2"></i> Contact Support
@@ -536,25 +536,25 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="subject.html">Subjects</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'papers' %}">Subjects</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'faq' %}">FAQ</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h3>Education Levels</h3>
           <ul class="footer-links">
-            <li><a href="subjects.html?type=general">General Education</a></li>
+            <li><a href="{% url 'papers' %}">General Education</a></li>
             <li>
-              <a href="subjects.html?type=technical">Technical Education</a>
+              <a href="{% url 'papers' %}">Technical Education</a>
             </li>
-            <li><a href="subjects.html?level=o-level">O-Level Papers</a></li>
-            <li><a href="subjects.html?level=a-level">A-Level Papers</a></li>
-            <li><a href="subjects.html?type=itvee">ITVEE Papers</a></li>
-            <li><a href="subjects.html?type=itvee">ATVEE Papers</a></li>
+            <li><a href="{% url 'papers' %}">O-Level Papers</a></li>
+            <li><a href="{% url 'papers' %}l">A-Level Papers</a></li>
+            <li><a href="{% url 'papers' %}">ITVEE Papers</a></li>
+            <li><a href="{% url 'papers' %}">ATVEE Papers</a></li>
           </ul>
         </div>
 
